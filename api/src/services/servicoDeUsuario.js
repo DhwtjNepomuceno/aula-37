@@ -9,6 +9,13 @@ class ServicoDeUsuario {
     return RepositorioDeUsuario.buscarTodos();
   }
 
+  pegarPeloID() {
+    if (!id) {
+      throw new Error("O ID não foi informado")
+    }
+    return RepositorioDeUsuario.buscarPeloID(id);
+  }
+
   cadastrar(nome, email, cpf, senha) {
     const userSchema = z.object({
       nome: z

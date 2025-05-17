@@ -8,6 +8,10 @@ class RepositorioDeUsuario {
   criar(usuario) {
     return usuario.salvar();
   }
+  
+  buscarPeloID(id) {
+    return Usuario.buscarPeloID(id)
+  } 
 
   buscarPeloEmail(email) {
     return Usuario.buscarPeloEmail(email);
