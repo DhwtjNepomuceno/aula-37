@@ -6,5 +6,6 @@ rotasDeUsuario.get("/todos", controladorDeUsuario.pegarTodos);
 rotasDeUsuario.get("/:id", controladorDeUsuario.pegarUmPeloID);
 rotasDeUsuario.post("/cadastrar", controladorDeUsuario.cadastrar);
 rotasDeUsuario.post("/conectar", controladorDeUsuario.conectar);
+rotasDeUsuario.delete("/:id", controladorDeUsuario.deletar);
 
 module.exports = rotasDeUsuario;

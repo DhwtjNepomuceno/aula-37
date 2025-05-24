@@ -76,6 +76,36 @@ class ControladorDeUsuario {
     }
   }
 
+  atualizar(req, res) {
+    try {
+      const id = req.params.id;
+      const UsuarioExistente = servicoDeUsuario.pegarTodos(id);
+      if (UsuarioExistente.length === 0)
+        return res.status(404).json({ messagem: "Nenhum usuário encontrado."});
+      const dadosNovos = req.body;
+      const usuarioAtualizado = servicoDeUsuario.atualizar(
+        UsuarioExistente,
+        dadosNovos
+      );
+      res.status(200).json(usuarios);
+    } catch (error) {
+      res.status(500).json({ erro: error.messagem || "Erro ao buscar usuários."})
+    }
+  }
+
+  deletar(req, res) {
+    try {
+      const id = req.params.id;
+      servicoDeUsuario.deletar(id);
+
+      res.status(204).json({ messasge: "Deletado com sucesso"});
+    } catch (error) {
+      res
+      .status(500)
+      .json({ erro: error.messagem || 
+      "Erro ao buscar usuários."})
+    }
+  }
 
 }
 

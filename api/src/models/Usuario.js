@@ -44,11 +44,15 @@ class Usuario {
     usuarios.splice(index, 1);
   }
 
-
-
   salvar() {
     usuarios.push(this);
     return this;
+  }
+
+  static atualizar(id, dadosNovos) {
+    const index = usuarios.findIndex((usuario) => usuario.id === id);
+    usuarios[index] = {...usuarios[index], ...dadosNovos};
+    return usuarios[index];
   }
 
   static async criptografar(senha) {
