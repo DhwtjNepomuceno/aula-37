@@ -83,7 +83,7 @@ class ServicoDeUsuario {
   }
 
   deletar(id){
-    return repositorioDeUsuario.deletar(id)
+    return repositorioDeUsuario.deletar(id);
   }
 }
 
